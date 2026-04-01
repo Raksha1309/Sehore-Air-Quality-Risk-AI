@@ -9,11 +9,15 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-ff4b4b?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-f7931e?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-LSTM-ff6f00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-52b788?style=for-the-badge)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-52b788?style=for-the-badge)](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/Raksha1309/Sehore-Air-Quality-Risk-AI?style=for-the-badge&color=gold)](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Raksha1309/Sehore-Air-Quality-Risk-AI?style=for-the-badge&color=52b788)](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/network/members)
 
 <br/>
 
 > *Combining geospatial intelligence, machine learning, and environmental science to quantify contamination risk across Sehore and surrounding regions.*
+
+**[🔗 View Repository](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI)** &nbsp;·&nbsp; **[🐛 Report Bug](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/issues)** &nbsp;·&nbsp; **[✨ Request Feature](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/issues)**
 
 </div>
 
@@ -72,15 +76,16 @@ User Input (pollutants + location)
 ## 📁 Repository Structure
 
 ```
-sehore-risk-ai/
+Sehore-Air-Quality-Risk-AI/
 │
-├── 📄 app.py                  # Streamlit app — inference & UI workflow
-├── 🧪 train_model.py          # Synthetic data training + artifact export
-├── 🔌 data_pipeline.py        # CPCB / local data pipeline (optional)
-├── 📊 aqi_data.csv            # Sample local air-quality dataset
-├── 🤖 sehore_risk_model.pkl   # Trained Random Forest model
-├── ⚖️  scaler.pkl              # Fitted feature scaler
-└── 🧩 test.py                 # Lightweight testing placeholder
+├── 📄 app.py                    # Streamlit app — inference & UI workflow
+├── 🧪 train_model.py            # Synthetic data training + artifact export
+├── 🔌 data_pipeline.py          # CPCB / local data pipeline (optional)
+├── 📊 aqi_data.csv              # Sample local air-quality dataset
+├── 🤖 sehore_risk_model.pkl     # Trained Random Forest model
+├── ⚖️  scaler.pkl                # Fitted feature scaler
+├── 🧩 test.py                   # Lightweight testing placeholder
+└── 📋 README.md                 # You are here!
 ```
 
 ---
@@ -109,8 +114,8 @@ sehore-risk-ai/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd sehore-risk-ai
+git clone https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI.git
+cd Sehore-Air-Quality-Risk-AI
 ```
 
 ### 2. Create & activate a virtual environment
@@ -156,25 +161,12 @@ Open your browser at → **[http://localhost:8501](http://localhost:8501)**
 
 ---
 
-## ☁️ Deployment
+## ☁️ Deploy to Streamlit Community Cloud
 
-### GitHub
-
-```bash
-git init
-git add .
-git commit -m "feat: initial commit — Sehore EcoRisk Intelligence"
-git branch -M main
-git remote add origin <your-github-repo-url>
-git push -u origin main
-```
-
-### Streamlit Community Cloud
-
-1. Push your code to GitHub
+1. Push your code to [this GitHub repository](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI)
 2. Visit [share.streamlit.io](https://share.streamlit.io)
 3. Click **New app**
-4. Select your repository and branch (`main`)
+4. Select **Raksha1309 / Sehore-Air-Quality-Risk-AI** and branch `main`
 5. Set the main file path to `app.py`
 6. Click **Deploy** 🚀
 
@@ -197,6 +189,8 @@ port = 8501
 |---|---|---|
 | `DATA_GOV_IN_API_KEY` | Optional | API key for `data_pipeline.py` live data fetch |
 
+> Set this in a `.env` file locally, or as a secret in Streamlit Community Cloud under **App Settings → Secrets**.
+
 ---
 
 ## 🗺️ Roadmap
@@ -209,15 +203,29 @@ port = 8501
 
 ---
 
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork → [Raksha1309/Sehore-Air-Quality-Risk-AI](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/fork)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a [Pull Request](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/pulls)
+
+---
+
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** — see the [LICENSE](https://github.com/Raksha1309/Sehore-Air-Quality-Risk-AI/blob/main/LICENSE) file for details.
 
 ---
 
 <div align="center">
 
 **Built with 💚 for environmental awareness in Sehore, Madhya Pradesh**
+
+*Made by [Raksha1309](https://github.com/Raksha1309)*
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a472a,50:2d6a4f,100:52b788&height=100&section=footer" width="100%"/>
 
