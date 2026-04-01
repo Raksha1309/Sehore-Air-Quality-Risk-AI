@@ -7,8 +7,6 @@ import plotly.graph_objects as go
 from geopy.distance import geodesic
 from streamlit_folium import st_folium
 import folium
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense
 
 # -----------------------------
 # CONFIG
@@ -216,25 +214,39 @@ if st.button("🚀 Analyze Risk"):
     st.plotly_chart(fig_map, use_container_width=True)
 
     # -----------------------------
-    # LSTM FORECAST
     # -----------------------------
-    st.subheader("📈 AQI Forecast")
-    st.caption("LSTM model predicts future pollution trend.")
+    # FORECAST (TensorFlow optional)
+    # -----------------------------
+    st.subheader("AQI Forecast")
+    st.caption("Forecasts near-term pollution trend.")
 
-    data = np.array([u_pm25 + np.random.randint(-10,10) for _ in range(20)])
-    X = data[:-1].reshape(-1,1,1)
-    y = data[1:]
-
-    lstm = Sequential([LSTM(10, input_shape=(1,1)), Dense(1)])
-    lstm.compile("adam","mse")
-    lstm.fit(X, y, epochs=5, verbose=0)
-
+    data = np.array([u_pm25 + np.random.randint(-10, 10) for _ in range(20)])
     future = []
-    curr = data[-1]
-    for _ in range(7):
-        p = lstm.predict(np.array([[[curr]]]), verbose=0)[0][0]
-        future.append(p)
-        curr = p
+
+    try:
+        from tensorflow.keras.models import Sequential
+        from tensorflow.keras.layers import LSTM, Dense
+
+        X = data[:-1].reshape(-1, 1, 1)
+        y = data[1:]
+
+        lstm = Sequential([LSTM(10, input_shape=(1, 1)), Dense(1)])
+        lstm.compile("adam", "mse")
+        lstm.fit(X, y, epochs=5, verbose=0)
+
+        curr = data[-1]
+        for _ in range(7):
+            p = lstm.predict(np.array([[[curr]]]), verbose=0)[0][0]
+            future.append(p)
+            curr = p
+    except Exception:
+        # Keep deployment lightweight when TensorFlow is unavailable.
+        st.info("TensorFlow not installed; using lightweight forecast fallback.")
+        trend = np.mean(np.diff(data[-6:])) if len(data) > 6 else 0
+        curr = float(data[-1])
+        for _ in range(7):
+            curr = max(0.0, curr + trend)
+            future.append(curr)
 
     st.line_chart(future)
 
